@@ -15,6 +15,10 @@ public class MessageReceiveEvent extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         super.onMessageReceived(event);
+        if (event.isWebhookMessage()) return;
+
+        if (event.getAuthor().getIdLong() != 321580743488831490L) return;
+
         if (event.getChannel().getType() == ChannelType.NEWS) {
             Message message = event.getMessage();
 
