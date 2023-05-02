@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         BotWorker.createBot(BotVersion.DEVELOPMENT_BUILD);
-        twitter = Twitter.newBuilder().oAuthConsumer(args[0], args[1]).oAuthAccessToken(args[0], args[1]).build();
+        twitter = Twitter.newBuilder().oAuthConsumer(args[0], args[1]).oAuthAccessToken(args[2], args[3]).oAuth2Token("Bearer", args[4]).build();
         BotWorker.addEvent(new MessageReceiveEvent());
     }
 
